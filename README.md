@@ -4,6 +4,8 @@ An independent integration of [`@stephanluis/react-input-duration`](https://www.
 and [`react-countdown`](https://github.com/ndresx/react-countdown). The editable duration control
 shows the remaining time while counting down. Applications provide their own controls.
 
+[Try the live demo](https://stephanluis.github.io/react-countdown-editable/)
+
 ## Installation
 
 ```sh
