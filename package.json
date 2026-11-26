@@ -1,6 +1,6 @@
 {
   "name": "@stephanluis/react-countdown-editable",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Editable React countdown using input-duration and react-countdown.",
   "type": "module",
   "main": "./index.js",
