@@ -31,9 +31,10 @@
   },
   "scripts": {
     "test": "node --test test/*.test.js && tsc --noEmit -p test/tsconfig.json",
+    "build": "vite build --base=./",
     "demo": "vite --host 127.0.0.1"
   },
-  "keywords": ["react", "countdown", "timer", "editable", "duration-input", "input-duration", "typescript"],
+  "keywords": ["react", "react-countdown", "countdown", "timer", "editable", "duration-input", "input-duration", "typescript"],
   "license": "MIT",
   "publishConfig": { "access": "public" }
 }

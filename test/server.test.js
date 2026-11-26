@@ -7,5 +7,5 @@ import EditableCountdown from '../index.js';
 test('renders on the server without browser globals', () => {
     const html = renderToString(React.createElement(EditableCountdown));
     assert.match(html, /input-duration/);
-    assert.match(html, />Start</);
+    assert.doesNotMatch(html, /<button/);
 });
