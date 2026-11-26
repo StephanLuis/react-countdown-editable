@@ -6,7 +6,7 @@ shows the remaining time while counting down. Applications provide their own con
 
 [Try the live demo](https://stephanluis.github.io/react-countdown-editable/)
 
-![Editable React countdown demo](./Kooha-2026-11-26-18-35-53.gif) 
+![Editable React countdown demo](https://raw.githubusercontent.com/StephanLuis/react-countdown-editable/main/Kooha-2026-11-26-18-35-53.gif)
 
 ## Installation
 
