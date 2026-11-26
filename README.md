@@ -1,10 +1,12 @@
-# Editable React countdown
+# Editable React-Countdown
 
 An independent integration of [`@stephanluis/react-input-duration`](https://www.npmjs.com/package/@stephanluis/react-input-duration)
 and [`react-countdown`](https://github.com/ndresx/react-countdown). The editable duration control
 shows the remaining time while counting down. Applications provide their own controls.
 
 [Try the live demo](https://stephanluis.github.io/react-countdown-editable/)
+
+![Editable React countdown demo](./Kooha-2026-11-26-18-35-53.gif) 
 
 ## Installation
 
