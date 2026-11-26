@@ -1,6 +1,6 @@
 {
   "name": "@stephanluis/react-countdown-editable",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Editable React countdown using input-duration and react-countdown.",
   "type": "module",
   "main": "./index.js",
@@ -11,7 +11,13 @@
       "import": "./index.js"
     }
   },
-  "files": ["index.js", "index.d.ts", "duration.js", "README.md", "LICENSE"],
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "duration.js",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
     "@stephanluis/react-input-duration": "^0.2.0",
     "react-countdown": "^2.3.6"
@@ -34,7 +40,18 @@
     "build": "vite build --base=./",
     "demo": "vite --host 127.0.0.1"
   },
-  "keywords": ["react", "react-countdown", "countdown", "timer", "editable", "duration-input", "input-duration", "typescript"],
+  "keywords": [
+    "react",
+    "react-countdown",
+    "countdown",
+    "timer",
+    "editable",
+    "duration-input",
+    "input-duration",
+    "typescript"
+  ],
   "license": "MIT",
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }
