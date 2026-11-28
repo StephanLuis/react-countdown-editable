@@ -14,12 +14,11 @@
   "files": [
     "index.js",
     "index.d.ts",
-    "duration.js",
     "README.md",
     "LICENSE"
   ],
   "dependencies": {
-    "@stephanluis/react-input-duration": "^0.2.0",
+    "@stephanluis/react-input-duration": "^0.3.0",
     "react-countdown": "^2.3.6"
   },
   "peerDependencies": {

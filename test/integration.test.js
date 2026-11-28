@@ -111,3 +111,24 @@ test('stopping after the deadline completes only once', async () => {
     await waitForInput('0:00:00:00.000');
     assert.deepEqual(events, ['complete']);
 });
+
+test('preserves days and milliseconds when stopping and rejects oversized durations', async () => {
+    const ref = React.createRef();
+    await act(async () => root.render(React.createElement(EditableCountdown, {
+        key: 'days', ref, initialValue: '1:02:03:04.005',
+    })));
+    await waitForInput('1:02:03:04.005');
+    const now = Date.now;
+    try {
+        const start = now();
+        Date.now = () => start;
+        await act(async () => ref.current.start());
+        Date.now = () => start + 1;
+        await act(async () => ref.current.stop());
+    } finally {
+        Date.now = now;
+    }
+    const input = await waitForInput('1:02:03:04.004');
+    await act(async () => { input.value = '104249991:08:59:00.992'; });
+    assert.throws(() => ref.current.start(), /greater than zero/);
+});

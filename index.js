@@ -1,10 +1,32 @@
 import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import InputDuration from '@stephanluis/react-input-duration';
 import countdownModule from 'react-countdown';
-import { durationInMilliseconds, durationValue } from './duration.js';
 
 const h = React.createElement;
 const Countdown = typeof countdownModule === 'function' ? countdownModule : countdownModule.default;
+
+function countdownMilliseconds(element) {
+    let total;
+    try {
+        total = element.valueAsMilliseconds;
+    } catch (error) {
+        if (!(error instanceof RangeError)) throw error;
+        throw new Error('Enter a duration greater than zero and within the supported date range.');
+    }
+    if (!Number.isSafeInteger(total) || total <= 0 || !Number.isFinite(new Date(Date.now() + total).getTime())) {
+        throw new Error('Enter a duration greater than zero and within the supported date range.');
+    }
+    return total;
+}
+
+function durationValue(total) {
+    const pad = (value, width) => String(value).padStart(width, '0');
+    const days = Math.floor(total / 86400000);
+    const hours = Math.floor(total % 86400000 / 3600000);
+    const minutes = Math.floor(total % 3600000 / 60000);
+    const seconds = Math.floor(total % 60000 / 1000);
+    return `${days}:${pad(hours, 2)}:${pad(minutes, 2)}:${pad(seconds, 2)}.${pad(total % 1000, 3)}`;
+}
 
 const EditableCountdown = forwardRef(function EditableCountdown({
     initialValue = '0:00:00:10.000', onStart, onStop, onComplete,
@@ -30,7 +52,7 @@ const EditableCountdown = forwardRef(function EditableCountdown({
                 throw new Error('The duration input is still loading.');
             }
             if (!element.checkValidity()) throw new Error('Enter a complete duration.');
-            const nextRun = { target: Date.now() + durationInMilliseconds(element.value) };
+            const nextRun = { target: Date.now() + countdownMilliseconds(element) };
             setValue(element.value);
             active.current = nextRun;
             setRun(nextRun);
